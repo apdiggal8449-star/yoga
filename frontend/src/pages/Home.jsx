@@ -1,52 +1,53 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import HomePart from "../components/HomePart"
 
 
 export const Home = () => {
   useEffect(() => {
-  AOS.init({
-    duration: 1000,
-  });
-}, []);
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <section className="w-full bg-white px-4 py-12 md:px-10 lg:px-20">
-      
+
       {/* SEO Heading */}
-      <div className="max-w-5xl mx-auto text-center"    data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
+      <div className="max-w-5xl mx-auto text-center" data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom">
         <h1 className="lg:text-[40px] text-[22px] md:text-[34px] sm:text-[28px] leading-tight font-bold text-[#1f1f1f] font-serif">
           Personal Yoga Trainers at Home in Delhi NCR
         </h1>
-<p className="mt-6 text-[#5f5f5f] text-[11px] md:text-[14px] leading-8 max-w-4xl mx-auto">
-  Discover the power of{" "}
+        <p className="mt-6 text-[#5f5f5f] text-[11px] md:text-[14px] leading-8 max-w-4xl mx-auto">
+          Discover the power of{" "}
 
-  <span className="text-[#2f2f2f] font-semibold">
-    yoga
-  </span>
+          <span className="text-[#2f2f2f] font-semibold">
+            yoga
+          </span>
 
-  —a timeless practice that promotes physical health, mental clarity,
-  and emotional well-being. Whether you're a beginner or an experienced
-  practitioner, yoga offers holistic benefits, including improved flexibility,
-  stress relief, and enhanced focus.<span className="text-[#2f2f2f] font-semibold">
-    {" "}Omyogshala
-  </span>  offers personalized
+          —a timeless practice that promotes physical health, mental clarity,
+          and emotional well-being. Whether you're a beginner or an experienced
+          practitioner, yoga offers holistic benefits, including improved flexibility,
+          stress relief, and enhanced focus.<span className="text-[#2f2f2f] font-semibold">
+            {" "}Omyogshala
+          </span>  offers personalized
 
-  <span className="text-orange-400 font-medium">
-    {" "}home
-  </span>
+          <span className="text-orange-400 font-medium">
+            {" "}home
+          </span>
 
-  <span className="text-orange-500 font-semibold">
-    {" "}yoga classes{" "}
-  </span>
+          <span className="text-orange-500 font-semibold">
+            {" "}yoga classes{" "}
+          </span>
 
-  tailored to your fitness level, ensuring you achieve balance in both
-  body and mind.
+          tailored to your fitness level, ensuring you achieve balance in both
+          body and mind.
 
-  
 
-  Join us for in-person or online sessions and start your journey toward a healthier, more mindful life today!
-</p>
+
+          Join us for in-person or online sessions and start your journey toward a healthier, more mindful life today!
+        </p>
       </div>
 
       {/* Section Heading */}
@@ -66,7 +67,7 @@ export const Home = () => {
 
         {/* Card 1 */}
         <div className="border border-orange-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition duration-300 bg-white">
-          
+
           <div className="bg-[#f8e8df] text-center text-orange-600 text-xs font-semibold px-3 py-2 rounded-md  ">
             Male & Female Both Trainers Available
           </div>
@@ -86,7 +87,15 @@ export const Home = () => {
             </button>
 
             <button className="bg-green-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-              WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -109,7 +118,15 @@ export const Home = () => {
             </button>
 
             <button className="bg-green-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-              WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -132,7 +149,15 @@ export const Home = () => {
             </button>
 
             <button className="bg-green-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-              WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -152,7 +177,15 @@ export const Home = () => {
             </button>
 
             <button className="bg-green-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-              WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -162,20 +195,28 @@ export const Home = () => {
             Expert Female Instructors
           </div>
           <h3 className="text-[28px] font-bold text-orange-600 text-center mt-3">
-           Pregnancy Yoga
+            Pregnancy Yoga
           </h3>
 
           <p className="text-gray-600 text-center leading-8 mt-4 text-[16px]">
             Safe Prenatal & Postnatal yoga for a healthy motherhood journey. Focus on ease of labor and pelvic health.
           </p>
 
-           <div className="flex align-item-center justify-center gap-4 mt-14  ">
+          <div className="flex align-item-center justify-center gap-4 mt-14  ">
             <button className="border lg:text-[14px] border-orange-200 text-orange-600 px-5 py-3 rounded-lg font-medium hover:bg-[#c77b46] hover:text-white transition">
               Pregnancy Yoga
             </button>
 
             <button className="bg-green-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-              WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -195,7 +236,15 @@ export const Home = () => {
             </button>
 
             <button className="bg-green-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-              WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -203,12 +252,12 @@ export const Home = () => {
         <div className="border border-orange-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition duration-300 bg-white">
 
           <h3 className="text-[28px] font-bold text-orange-600 text-center mt-3">
-           Yoga for Stress Relief
+            Yoga for Stress Relief
 
           </h3>
 
           <p className="text-gray-600 text-center leading-8 mt-4 text-[16px]">
-           The ultimate cure for anxiety and workplace burnout. Relax your muscles and calm your mind with restorative yoga.
+            The ultimate cure for anxiety and workplace burnout. Relax your muscles and calm your mind with restorative yoga.
           </p>
 
           <div className="flex  align-item-center  justify-center gap-4 mt-18">
@@ -217,28 +266,44 @@ export const Home = () => {
             </button>
 
             <button className="bg-green-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-              WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                WhatsApp
+              </a>
             </button>
           </div>
         </div>
         {/* Card 8 */}
         <div className="border border-orange-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition duration-300 bg-white">
-              <div className="bg-[#f8e8df] text-center text-orange-600 text-xs font-semibold px-3 py-2 rounded-md ">
-           Private Therapeutic Care
+          <div className="bg-[#f8e8df] text-center text-orange-600 text-xs font-semibold px-3 py-2 rounded-md ">
+            Private Therapeutic Care
           </div>
           <h3 className="text-[28px] font-bold text-orange-600 text-center mt-3">
-           Anxiety & Depression
+            Anxiety & Depression
           </h3>
 
           <p className="text-gray-600 text-center leading-8 mt-4 text-[16px]">
-           Healing through yoga therapy. We help you manage hormonal imbalances like PCOS/PCOD and emotional stress.
+            Healing through yoga therapy. We help you manage hormonal imbalances like PCOS/PCOD and emotional stress.
           </p>
 
           <div className="flex align-item-center  justify-center gap-4 mt-10">
-           
+
 
             <button className="bg-green-500  text-[13px] text-white px-20 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-             Enquire On WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                Enquire On WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -254,10 +319,18 @@ export const Home = () => {
           </p>
 
           <div className="flex align-item-center justify-center gap-4 mt-18">
-            
+
 
             <button className="bg-green-500 text-[13px] text-white px-20 py-3 rounded-lg font-medium hover:bg-green-600 transition">
-             Enquire On WhatsApp
+              <a
+                href="https://wa.me/919999999999?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >
+
+                Enquire On WhatsApp
+              </a>
             </button>
           </div>
         </div>
@@ -266,24 +339,26 @@ export const Home = () => {
       </div>
 
       <div>
-      <h1 className="text-orange-500 font-bold text-[24px] text-semibold text-center mt-5">Why OmYogshala for Your Fitness Journey?</h1>
-      <ul className="list-disc pl-5 mt-4"><li className="text-gray-800 mt-1 leading-7">
-           No More Traffic: Don’t let Delhi-NCR traffic stop your workout. We bring the studio to your doorstep.
-          </li>
+        <h1 className="text-orange-500 font-bold text-[24px] text-semibold text-center mt-5">Why OmYogshala for Your Fitness Journey?</h1>
+        <ul className="list-disc pl-5 mt-4"><li className="text-gray-800 mt-1 leading-7">
+          No More Traffic: Don’t let Delhi-NCR traffic stop your workout. We bring the studio to your doorstep.
+        </li>
           <li className="text-gray-800 mt-1 leading-7">100% Personal Attention: In group classes, you are just a face. In our home sessions, you are the focus. Correct your postures with real-time feedback.
 
 
 
-</li>
+          </li>
           <li className="text-gray-800 mt-1
          leading-7">Certified & Safe: Practice with peace of mind. All our trainers are background-verified and certified by top yoga institutions
 
-</li>
-          
-          </ul>
+          </li>
+
+        </ul>
 
       </div>
-
+      <div className="mt-6">
+        <HomePart />
+      </div>
       {/* Floating WhatsApp Button */}
       <a
         href="https://wa.me/919999999999"

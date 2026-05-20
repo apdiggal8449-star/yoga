@@ -90,7 +90,7 @@ const Contact = () => {
 
           {/* Left Info Card */}
           <div
-            data-aos="fade-right"
+            
             className="relative bg-gradient-to-br from-[#4b2dbd] to-[#6d48ff] rounded-3xl p-8 sm:p-10 text-white shadow-2xl overflow-hidden"
           >
 
@@ -174,7 +174,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div
-            data-aos="fade-left"
+            
             className="bg-white rounded-3xl shadow-2xl p-6 sm:p-10"
           >
 

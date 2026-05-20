@@ -12,6 +12,8 @@ export default function CreateBlog() {
 
   const [image, setImage] = useState(null);
 
+  const [preview, setPreview] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -20,6 +22,17 @@ export default function CreateBlog() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleImageChange = (e) => {
+
+    const file = e.target.files[0];
+
+    setImage(file);
+
+    if (file) {
+      setPreview(URL.createObjectURL(file));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -34,20 +47,18 @@ export default function CreateBlog() {
 
       blogData.append("title", formData.title);
       blogData.append("category", formData.category);
-      blogData.append(
-        "description",
-        formData.description
-      );
+      blogData.append("description", formData.description);
 
-      blogData.append("image", image);
+      if (image) {
+        blogData.append("image", image);
+      }
 
       const response = await axios.post(
         "http://localhost:5000/api/blog/create",
         blogData,
         {
           headers: {
-            "Content-Type":
-              "multipart/form-data",
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -62,11 +73,17 @@ export default function CreateBlog() {
 
       setImage(null);
 
+      setPreview("");
+
     } catch (error) {
 
       console.log(error);
 
-      alert(error.response.data.message);
+      alert(
+        error?.response?.data?.message ||
+        error.message ||
+        "Something went wrong"
+      );
 
     } finally {
 
@@ -152,22 +169,33 @@ export default function CreateBlog() {
 
             <label className="border-2 border-dashed rounded-2xl p-10 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-50 transition">
 
-              <ImagePlus
-                size={50}
-                className="text-[#6d48ff]"
-              />
+              {
+                preview ? (
+                  <img
+                    src={preview}
+                    alt="Preview"
+                    className="w-full max-h-[300px] object-cover rounded-xl"
+                  />
+                ) : (
+                  <>
+                    <ImagePlus
+                      size={50}
+                      className="text-[#6d48ff]"
+                    />
 
-              <p className="mt-4 text-gray-500">
-                Click to upload image
-              </p>
+                    <p className="mt-4 text-gray-500">
+                      Click to upload image
+                    </p>
+                  </>
+                )
+              }
 
               <input
                 type="file"
                 hidden
                 required
-                onChange={(e) =>
-                  setImage(e.target.files[0])
-                }
+                accept="image/*"
+                onChange={handleImageChange}
               />
 
             </label>

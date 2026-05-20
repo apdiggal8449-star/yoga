@@ -1,391 +1,246 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
-
+import Logo from '../assets/om.webp';
 export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [classesOpen, setClassesOpen] = useState(false);
 
-  const [servicesOpen, setServicesOpen] =
-    useState(false);
+  const navRef = useRef();
 
-  const [classesOpen, setClassesOpen] =
-    useState(false);
-
-  // close mobile menu
   const closeMenu = () => {
     setIsOpen(false);
     setServicesOpen(false);
     setClassesOpen(false);
   };
 
+  // ✅ CLOSE WHEN CLICK OUTSIDE (IMPORTANT FIX)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <header className="w-full shadow-md bg-orange-500 sticky top-0 z-50">
 
-      {/* SEO Friendly Nav */}
-      <nav
-        className="max-w-7xl mx-auto px-4 lg:px-8"
-        aria-label="Main Navigation"
-      >
+      <nav ref={navRef} className="max-w-7xl mx-auto px-4 lg:px-8">
 
         <div className="flex items-center justify-between h-16">
 
-          {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-3"
-            aria-label="Om Yogshala Home"
-            onClick={closeMenu}
-          >
-
-            {/* Logo Circle */}
-            <div
-              className="
-                w-14
-                h-14
-                border
-                border-dashed
-                border-white
-                bg-orange-500
-                flex
-                items-center
-                justify-center
-                shadow-lg
-              "
-            >
-              <span className="text-yellow-300 text-3xl font-bold">
-                ॐ
-              </span>
-            </div>
-
-            <h1 className="text-black font-bold text-2xl">
-              Om Yogshala
-            </h1>
-
+          {/* LOGO */}
+          <Link to="/" onClick={closeMenu} className="flex items-center gap-2">
+          <img
+  src={Logo}
+  alt="Logo"
+  className="w-12 h-12 brightness-0 font-bold invert sepia saturate-[1000%] hue-rotate-[320deg]"
+/>
+            <h1 className="text-black font-bold text-xl">Om Yogshala</h1>
           </Link>
 
-          {/* Desktop Menu */}
+          {/* DESKTOP MENU */}
           <ul className="hidden lg:flex items-center gap-8 text-white font-medium">
 
             <li>
-              <Link
-                to="/"
-                className="hover:text-black transition"
-              >
-                Home
-              </Link>
+              <Link to="/" onClick={closeMenu}>Home</Link>
             </li>
 
             <li>
-              <Link
-                to="/about"
-                className="hover:text-black transition"
-              >
-                About Us
-              </Link>
+              <Link to="/about" onClick={closeMenu}>About Us</Link>
             </li>
 
-            {/* Services Dropdown */}
-            <li className="relative group">
-
-              <button className="flex items-center gap-1 hover:text-black transition">
-                Yoga Services
-                <ChevronDown size={18} />
+            {/* SERVICES */}
+            <li className="relative">
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex items-center gap-1 hover:text-black"
+              >
+                Yoga Services <ChevronDown size={18} />
               </button>
 
-              <div className="absolute top-6 left-0 bg-orange-500 text-white rounded-lg shadow-lg w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
+              {servicesOpen && (
+                <div className="absolute top-8 left-0 bg-orange-500 w-56 rounded shadow-lg text-white">
 
-                <Link
-                  to="/home-yoga"
-                  className="block px-4 py-3 "
-                >
-                  Home Yoga Classes
-                </Link>
+                  <Link to="/homeyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes
+                  </Link>
 
-                <Link
-                  to="/online-yoga"
-                  className="block px-4 py-3 "
-                >
-                  Online Yoga Classes
-                </Link>
+                  <Link to="/onlineyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Online Yoga Classes
+                  </Link>
 
-                <Link
-                  to="/corporate-yoga"
-                  className="block px-4 py-3 "
-                >
-                  Corporate Yoga Classes
-                </Link>
-                <Link
-                  to="/corporate-yoga"
-                  className="block px-4 py-3 "
-                >
-                  Pregnancy Yoga Classes
-                </Link>
-                <Link
-                  to="/corporate-yoga"
-                  className="block px-4 py-3 "                >
-                  Meditation & Pranayama
-                </Link>
-                <Link
-                  to="/corporate-yoga"
-                  className="block px-4 py-3 "
-                >
-            Yoga for Stres relief
-                </Link>
-               </div>
+                  <Link to="/corporateyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Corporate Yoga Classes
+                  </Link>
 
+                  <Link to="/pragnancyyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Pregnancy Yoga Classes
+                  </Link>
+
+                  <Link to="/meditationyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Meditation & Pranayama
+                  </Link>
+
+                  <Link to="/stresyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Yoga for Stress Relief
+                  </Link>
+
+                </div>
+              )}
             </li>
 
-            {/* Classes Dropdown */}
-            <li className="relative group">
-
-              <button className="flex items-center gap-1 hover:text-black transition">
-                Yoga Classes 
-                <ChevronDown size={18} />
+            {/* CLASSES */}
+            <li className="relative">
+              <button
+                onClick={() => setClassesOpen(!classesOpen)}
+                className="flex items-center gap-1 hover:text-black"
+              >
+                Yoga Classes <ChevronDown size={18} />
               </button>
 
-              <div className="absolute top-6 left-0 bg-orange-500 text-white rounded-lg shadow-lg w-75 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
+              {classesOpen && (
+                <div className="absolute top-8 left-0 bg-orange-500 w-60 rounded shadow-lg text-white">
 
-                <Link
-                  to="/beginner"
-                  className="block px-4 py-3 "
-                >
-                  Home Yoga Classes in Delhi
-                </Link>
-                <Link
-                  to="/advanced"
-                  className="block px-4 py-3 "
-                >
-                  Home Yoga Classes in Noida
-                </Link>
+                  <Link to="/delhi" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Delhi
+                  </Link>
 
-                <Link
-                  to="/advanced"
-                  className="block px-4 py-3 "
-                >
-                  Home Yoga Classes in Ghaziabad
-                </Link>
+                  <Link to="/noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Noida
+                  </Link>
 
-                <Link
-                  to="/meditation"
-                  className="block px-4 py-3 "
-                >
-                  Home Yoga Classes in Greater Noida
-                </Link>
-                <Link
-                  to="/advanced"
-                  className="block px-4 py-3 "
-                >
-                  Home Yoga Classes in Faridabad
-                </Link>
-                 <Link
-                  to="/meditation"
-                  className="block px-4 py-3"
-                >
-                  Home Yoga Classes in Gurgaon
-                </Link>
+                  <Link to="/ghaziabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Ghaziabad
+                  </Link>
 
-              </div>
+                  <Link to="/greater-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Greater Noida
+                  </Link>
 
+                  <Link to="/faridabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Faridabad
+                  </Link>
+
+                  <Link to="/gurgaon" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Gurgaon
+                  </Link>
+
+                </div>
+              )}
             </li>
 
-            <li>
-              <Link
-                to="/blog"
-                className="hover:text-black transition"
-              >
-                Blog
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/contact"
-                className="hover:text-black transition"
-              >
-                Contact
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/writeus"
-                className="hover:text-black transition"
-              >
-                Write For Us
-              </Link>
-            </li>
+            <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
+            <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
+            <li><Link to="/writeus" onClick={closeMenu}>Write For Us</Link></li>
+              <li><Link to="/admin-login" onClick={closeMenu}>Admin</Link></li>
 
           </ul>
 
-          {/* Mobile Button */}
+          {/* MOBILE BUTTON */}
           <button
             className="lg:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
           >
-            {isOpen ? (
-              <X size={30} />
-            ) : (
-              <Menu size={30} />
-            )}
+            {isOpen ? <X size={30} /> : <Menu size={30} />}
           </button>
 
         </div>
 
-        {/* Mobile Menu */}
+        {/* MOBILE MENU */}
         {isOpen && (
+          <div className="lg:hidden bg-orange-500 pb-5 text-white">
 
-          <div className="lg:hidden bg-orange-500 pb-5">
+            <Link to="/" onClick={closeMenu} className="block px-4 py-2">Home</Link>
 
-            <ul className="flex flex-col gap-3 text-white font-medium">
+            <Link to="/about" onClick={closeMenu} className="block px-4 py-2">About</Link>
 
-              <li>
-                <Link
-                  to="/"
-                  className="block py-2"
-                  onClick={closeMenu}
-                >
-                  Home
-                </Link>
-              </li>
+            {/* MOBILE SERVICES */}
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="w-full text-left px-4 py-2 flex justify-between"
+            >
+              Yoga Services <ChevronDown size={18} />
+            </button>
 
-              <li>
-                <Link
-                  to="/about"
-                  className="block py-2"
-                  onClick={closeMenu}
-                >
-                  About Us
-                </Link>
-              </li>
+            {servicesOpen && (
+              <div className="pl-6">
+                 <Link to="/homeyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes
+                  </Link>
 
-              {/* Mobile Services */}
-              <li>
+                  <Link to="/onlineyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Online Yoga Classes
+                  </Link>
 
-                <button
-                  onClick={() =>
-                    setServicesOpen(!servicesOpen)
-                  }
-                  className="flex items-center justify-between w-full py-2"
-                >
-                  Yoga Services
-                  <ChevronDown size={18} />
-                </button>
+                  <Link to="/corporateyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Corporate Yoga Classes
+                  </Link>
 
-                {servicesOpen && (
+                  <Link to="/pragnancyyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Pregnancy Yoga Classes
+                  </Link>
 
-                  <div className="pl-4 flex flex-col gap-2 mt-2">
+                  <Link to="/meditationyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Meditation & Pranayama
+                  </Link>
 
-                    <Link
-                      to="/home-yoga"
-                      onClick={closeMenu}
-                    >
-                      Home Yoga Classes
-                    </Link>
+                  <Link to="/stresyoga" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Yoga for Stress Relief
+                  </Link>
+              </div>
+            )}
 
-                    <Link
-                      to="/online-yoga"
-                      onClick={closeMenu}
-                    >
-                      Online Yoga Classes
-                    </Link>
+            {/* MOBILE CLASSES */}
+            <button
+              onClick={() => setClassesOpen(!classesOpen)}
+              className="w-full text-left px-4 py-2 flex justify-between"
+            >
+              Yoga Classes <ChevronDown size={18} />
+            </button>
 
-                    <Link
-                      to="/corporate-yoga"
-                      onClick={closeMenu}
-                    >
-                      Corporate Yoga
-                    </Link>
+            {classesOpen && (
+              <div className="pl-6">
+                                 <Link to="/delhi" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Delhi
+                  </Link>
 
-                  </div>
+                  <Link to="/noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Noida
+                  </Link>
 
-                )}
+                  <Link to="/ghaziabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Ghaziabad
+                  </Link>
 
-              </li>
+                  <Link to="/greater-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Greater Noida
+                  </Link>
 
-              {/* Mobile Classes */}
-              <li>
+                  <Link to="/faridabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Faridabad
+                  </Link>
 
-                <button
-                  onClick={() =>
-                    setClassesOpen(!classesOpen)
-                  }
-                  className="flex items-center justify-between w-full py-2"
-                >
-                  Yoga Classes
-                  <ChevronDown size={18} />
-                </button>
+                  <Link to="/gurgaon" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                    Home Yoga Classes in Gurgaon
+                  </Link>
 
-                {classesOpen && (
+              </div>
+            )}
 
-                  <div className="pl-4 flex flex-col gap-2 mt-2">
-
-                    <Link
-                      to="/beginner"
-                      onClick={closeMenu}
-                    >
-                      Beginner Yoga
-                    </Link>
-
-                    <Link
-                      to="/advanced"
-                      onClick={closeMenu}
-                    >
-                      Advanced Yoga
-                    </Link>
-
-                    <Link
-                      to="/meditation"
-                      onClick={closeMenu}
-                    >
-                      Meditation Classes
-                    </Link>
-
-                  </div>
-
-                )}
-
-              </li>
-
-              <li>
-                <Link
-                  to="/blog"
-                  className="block py-2"
-                  onClick={closeMenu}
-                >
-                  Blog
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  to="/contact"
-                  className="block py-2"
-                  onClick={closeMenu}
-                >
-                  Contact
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  to="/write-for-us"
-                  className="block py-2"
-                  onClick={closeMenu}
-                >
-                  Write For Us
-                </Link>
-              </li>
-
-            </ul>
+            <Link to="/blog" onClick={closeMenu} className="block px-4 py-2">Blog</Link>
+            <Link to="/contact" onClick={closeMenu} className="block px-4 py-2">Contact</Link>
 
           </div>
-
         )}
 
       </nav>
-
     </header>
   );
 }
