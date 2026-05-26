@@ -4,12 +4,24 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import blogRoutes from "./routes/blogRoute.js";
+import Enquiry from "./models/Enquiry.js";
+import enquiryRoute from "./routes/enquiryRoute.js";
+import authRoute from "./routes/authRoute.js";
 dotenv.config();
 
 const app = express();
    connectDB();
 app.use(cors());
 app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+// static uploads folder
+app.use(
+  "/uploads",
+  express.static("uploads")
+);
+
 
 app.post("/contact", async (req, res) => {
 
@@ -32,6 +44,14 @@ app.post("/contact", async (req, res) => {
           pass: process.env.PASSWORD,
         },
       });
+
+        // SAVE TO DATABASE
+    await Enquiry.create({
+      name,
+      email,
+      phone,
+      message,
+    });
 
     await transporter.sendMail({
 
@@ -77,10 +97,13 @@ app.use(
 
 
 console.log("BLOG ROUTE IMPORTED");
-
+app.use("/api/auth", authRoute);
+app.use(
+  "/api/enquiry",
+  enquiryRoute
+);
 app.use("/api/blog", blogRoutes);
 
-console.log("BLOG ROUTE CONNECTED");
 
 
 app.listen(5000, () => {

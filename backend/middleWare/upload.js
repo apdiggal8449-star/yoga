@@ -1,23 +1,67 @@
-import multer from "multer";
+// middleware/upload.js
 
+import multer from "multer";
+import path from "path";
+import fs from "fs";
+
+// uploads folder path
+const uploadPath = "uploads";
+
+// create uploads folder automatically
+if (!fs.existsSync(uploadPath)) {
+  fs.mkdirSync(uploadPath, { recursive: true });
+}
+
+// multer storage
 const storage = multer.diskStorage({
 
-  destination: (req, file, cb) => {
-
-    cb(null, "uploads/");
+  destination: function (req, file, cb) {
+    cb(null, uploadPath);
   },
 
-  filename: (req, file, cb) => {
+  filename: function (req, file, cb) {
 
-    cb(
-      null,
+    const uniqueName =
       Date.now() +
-        "-" +
-        file.originalname
-    );
+      "-" +
+      Math.round(Math.random() * 1e9) +
+      path.extname(file.originalname);
+
+    cb(null, uniqueName);
   },
 });
 
-const upload = multer({ storage });
+// image filter
+const fileFilter = (req, file, cb) => {
+
+  const allowedTypes =
+    /jpeg|jpg|png|webp/;
+
+  const extname = allowedTypes.test(
+    path.extname(file.originalname).toLowerCase()
+  );
+
+  const mimetype = allowedTypes.test(
+    file.mimetype
+  );
+
+  if (extname && mimetype) {
+    return cb(null, true);
+  }
+
+  cb(
+    new Error(
+      "Only jpg, jpeg, png and webp images allowed"
+    )
+  );
+};
+
+const upload = multer({
+  storage,
+  fileFilter,
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+  },
+});
 
 export default upload;
