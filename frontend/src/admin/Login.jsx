@@ -1,16 +1,28 @@
 import React, { useState } from "react";
+
 import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const [email, setEmail] =
+    useState("");
+
+  const [password, setPassword] =
+    useState("");
+
+  const [loading, setLoading] =
+    useState(false);
 
   const handleLogin = async (e) => {
+
     e.preventDefault();
 
     try {
+
       setLoading(true);
 
       const res = await axios.post(
@@ -21,36 +33,45 @@ const AdminLogin = () => {
         }
       );
 
-      // save token
-      localStorage.setItem(
-        "token",
-        res.data.token
-      );
+      console.log(res.data);
 
-      localStorage.setItem(
-        "role",
-        res.data.role
-      );
+      // SAVE TOKEN
 
-      alert("Login Successful");
+      if (res.data.token) {
 
-      // redirect to dashboard
-      window.location.href = "/dashboard";
+        localStorage.setItem(
+          "token",
+          res.data.token
+        );
+
+        localStorage.setItem(
+          "role",
+          res.data.role
+        );
+
+        alert("Login Successful");
+
+        // REDIRECT
+        navigate("/admin/dashboard");
+      }
 
     } catch (error) {
+
       console.log(error);
 
       alert(
         error?.response?.data?.message ||
-          "Login failed"
+        "Login failed"
       );
 
     } finally {
+
       setLoading(false);
     }
   };
 
   return (
+
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
 
       <form
@@ -58,7 +79,7 @@ const AdminLogin = () => {
         className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md space-y-5"
       >
 
-        <h1 className="text-2xl font-bold text-center">
+        <h1 className="text-3xl font-bold text-center">
           Admin Login
         </h1>
 
@@ -87,11 +108,13 @@ const AdminLogin = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700"
+          className="w-full bg-orange-500 text-white py-3 rounded-xl font-semibold hover:bg-orange-600"
         >
+
           {loading
             ? "Logging in..."
             : "Login"}
+
         </button>
 
       </form>

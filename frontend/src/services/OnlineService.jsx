@@ -89,14 +89,15 @@ export default function OnlineYogaWebsite() {
             <div className="bg-white rounded-2xl shadow-xl p-6">
 
               <h3 className="text-lg font-bold mb-4">
-                Book Free Trial Session
+          Connect With Om Yogshala
               </h3>
+              <p>Fill out the form below, and our team will get back to you shortly.</p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
 
                 {/* NAME */}
                 <div>
-                  <label className="text-xs font-semibold">Full Name</label>
+                  <label className=" block text-left text-xs font-semibold">Full Name</label>
                   <input
                     type="text"
                     name="name"
@@ -109,7 +110,7 @@ export default function OnlineYogaWebsite() {
 
                 {/* EMAIL */}
                 <div>
-                  <label className="text-xs font-semibold">Email</label>
+                  <label className=" block text-left text-xs font-semibold">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -122,7 +123,7 @@ export default function OnlineYogaWebsite() {
 
                 {/* PHONE */}
                 <div>
-                  <label className="text-xs font-semibold">Phone Number</label>
+                  <label className=" block text-left text-xs font-semibold">Phone Number</label>
                   <input
                     type="tel"
                     name="phone"
@@ -135,7 +136,7 @@ export default function OnlineYogaWebsite() {
 
                 {/* MESSAGE */}
                 <div>
-                  <label className="text-xs font-semibold">Message</label>
+                  <label className=" block text-lefttext-xs font-semibold">Message</label>
                   <textarea
                     name="message"
                     value={formData.message}
@@ -167,22 +168,40 @@ export default function OnlineYogaWebsite() {
         </p>
 
         <div>
-          <h1 className="text-4xl font-bold mt-4 mb-4">
+          <h1 className="text-4xl font-bold my-4">
             Why Choose Online Yoga Classes?
           </h1>
 
-          <p>
+          <p className="my-6">
             Practicing yoga online offers flexibility and convenience, making it easier to incorporate into your daily routine. Whether you have a busy work schedule or prefer practicing in your own space, online yoga allows you to stay consistent without needing to commute to a studio.
           </p>
 
           <ul className="list-disc pl-5">
-            <li className="mt-5">Flexibility: Join classes from anywhere, at a time that fits your schedule.</li>
-            <li className="mt-5">Real-Time Interaction: Get personalized guidance during live sessions.</li>
-            <li className="mt-5">Access to Multiple Styles: Hatha, Vinyasa, Ashtanga.</li>
-            <li className="mt-5">Convenient and Safe: Practice at home.</li>
+            <li className="mt-2">Flexibility: Join classes from anywhere, at a time that fits your schedule.</li>
+            <li className="mt-2">Real-Time Interaction: Get personalized guidance during live sessions.</li>
+            <li className="mt-2">Access to Multiple Styles: Hatha, Vinyasa, Ashtanga.</li>
+            <li className="mt-2">Convenient and Safe: Practice at home.</li>
           </ul>
         </div>
+              
+              <div className="my-6">
+          <h1 className="text-4xl font-bold my-4">
+            Who Can Benefit from Online Yoga Classes?
+          </h1>
 
+          <p className="my-6">
+            Online yoga is perfect for anyone looking to: </p>
+
+          <ul className="list-disc pl-5">
+            <li className="mt-2">Save time by practicing from home.</li>
+            <li className="mt-2">Access high-quality instruction from anywhere in the world.</li>
+            <li className="mt-2">Maintain a regular yoga routine with flexible scheduling.</li>
+            <li className="mt-2">
+Choose from a variety of yoga styles and intensity levels.</li>
+          <li className="mt-2">
+Practice safely at home without needing to travel to a studio.</li>
+          </ul>
+        </div>
       </section>
 
     </div>

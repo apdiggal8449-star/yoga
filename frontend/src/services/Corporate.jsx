@@ -1,4 +1,10 @@
 import React from "react";
+import noi from "../assets/medi.webp";
+import noi2 from "../assets/ycd.webp";
+import gazi from "../assets/ycgaz.webp";
+import gre from "../assets/ycgn.webp";
+import fari from "../assets/ycf.webp";
+import gur from "../assets/ycg.webp";
 
 export default function CorporateYoga() {
   return (
@@ -659,12 +665,11 @@ export default function CorporateYoga() {
       {/* card */}
       <div>
         <img
-          src="https://images.unsplash.com/photo-1518611012118-fb5fc6f2b497?q=80&w=1200&auto=format&fit=crop"
-          alt=""
-          className="w-full h-[210px] object-cover rounded-md"
+          src={gre}         alt=""
+         className="w-full aspect-[4/3] object-cover rounded-md"
         />
 
-        <h3 className="text-[24px] font-bold text-[#ef6c00] mt-4 mb-3">
+        <h3 className="text-[24px font-bold text-[#ef6c00] mt-4 mb-3">
           Yoga Classes Greater in Noida
         </h3>
 
@@ -683,9 +688,9 @@ export default function CorporateYoga() {
       {/* card */}
       <div>
         <img
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop"
-          alt=""
-          className="w-full h-[210px] object-cover rounded-md"
+          src={fari}
+          alt="faridabad"
+         className="w-full aspect-[4/3] object-cover rounded-md"
         />
 
         <h3 className="text-[24px] font-bold text-[#ef6c00] mt-4 mb-3">
@@ -704,12 +709,10 @@ export default function CorporateYoga() {
       </div>
 
       {/* card */}
-      <div>
+      <div className="">
         <img
-          src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1200&auto=format&fit=crop"
-          alt=""
-          className="w-full h-[210px] object-cover rounded-md"
-        />
+          src={gur}          alt=""
+          className="w-full aspect-[4/3] object-cover rounded-md"  />
 
         <h3 className="text-[24px] font-bold text-[#ef6c00] mt-4 mb-3">
           Yoga Classes in Gurugram
@@ -729,9 +732,9 @@ export default function CorporateYoga() {
       {/* card */}
       <div>
         <img
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop"
+          src={noi}
           alt=""
-          className="w-full h-[210px] object-cover rounded-md"
+         className="w-full aspect-[4/3] object-cover rounded-md"
         />
 
         <h3 className="text-[24px] font-bold text-[#ef6c00] mt-4 mb-3">
@@ -744,7 +747,7 @@ export default function CorporateYoga() {
           South, West, North and East Delhi.
         </p>
 
-        <button className="bg-green-500 hover:bg-green-600 transition text-white px-6 py-3 rounded-md font-semibold">
+        <button className="bg-green-500  hover:bg-green-600 transition text-white px-6 py-3 rounded-md font-semibold">
           Whatsapp
         </button>
       </div>
@@ -752,10 +755,9 @@ export default function CorporateYoga() {
       {/* card */}
       <div>
         <img
-          src="https://images.unsplash.com/photo-1518611012118-fb5fc6f2b497?q=80&w=1200&auto=format&fit=crop"
+          src={noi2}
           alt=""
-          className="w-full h-[210px] object-cover rounded-md"
-        />
+         className="w-full aspect-[4/3] object-cover rounded-md"        />
 
         <h3 className="text-[24px] font-bold text-[#ef6c00] mt-4 mb-3">
           Yoga Classes in Noida
@@ -775,9 +777,8 @@ export default function CorporateYoga() {
       {/* card */}
       <div>
         <img
-          src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop"
-          alt=""
-          className="w-full h-[210px] object-cover rounded-md"
+          src={gazi}          alt=""
+          className="w-full aspect-[4/3] object-cover rounded-md"
         />
 
         <h3 className="text-[24px] font-bold text-[#ef6c00] mt-4 mb-3">

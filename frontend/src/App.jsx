@@ -1,4 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Footer from "./components/Footer";
 import Navbar from "./components/Nabvar";
@@ -28,18 +35,25 @@ import GreaterNoida from "./calsses/GreaterNoida";
 import Faridabad from "./calsses/Faridabad";
 import Gurgaon from "./calsses/Gurgaon";
 
-function App() {
+function Layout() {
+
+  const location = useLocation();
+
+  // CHECK ADMIN ROUTE
+  const isAdminRoute =
+    location.pathname.startsWith("/admin");
 
   return (
 
-    <BrowserRouter>
+    <>
 
-      {/* COMMON NAVBAR */}
-      <Navbar />
+      {/* HIDE NAVBAR */}
+      {!isAdminRoute && <Navbar />}
 
       <Routes>
 
         {/* MAIN PAGES */}
+
         <Route path="/" element={<Home />} />
 
         <Route path="/about" element={<About />} />
@@ -51,6 +65,7 @@ function App() {
         <Route path="/writeus" element={<WriteUs />} />
 
         {/* SERVICES */}
+
         <Route path="/homeyoga" element={<HomeServises />} />
 
         <Route path="/onlineyoga" element={<Online />} />
@@ -59,11 +74,12 @@ function App() {
 
         <Route path="/pragnancyyoga" element={<Pragnancy />} />
 
-        <Route path="/stressyoga" element={<Stresh />} />
+        <Route path="/stresyoga" element={<Stresh />} />
 
         <Route path="/meditationyoga" element={<Maditation />} />
 
-        {/* CITY CLASSES */}
+        {/* CLASSES */}
+
         <Route path="/yoga-classes-noida" element={<Noida />} />
 
         <Route path="/yoga-classes-delhi" element={<Delhi />} />
@@ -85,19 +101,58 @@ function App() {
           element={<Gurgaon />}
         />
 
-        {/* ADMIN */}
-        <Route path="/admindashboard" element={<DashBoard />} />
+        {/* ADMIN LOGIN */}
 
-        <Route path="/admin-login" element={<Login />} />
+        <Route
+          path="/adminlogin"
+          element={<Login />}
+        />
 
-        <Route path="/admin-create" element={<Create />} />
+        {/* PROTECTED ADMIN ROUTES */}
 
-        <Route path="/admin-update" element={<Update />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashBoard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/create"
+          element={
+            <ProtectedRoute>
+              <Create />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/update/:id"
+          element={
+            <ProtectedRoute>
+              <Update />
+            </ProtectedRoute>
+          }
+        />
 
       </Routes>
 
-      {/* COMMON FOOTER */}
-      <Footer />
+      {/* HIDE FOOTER */}
+      {!isAdminRoute && <Footer />}
+
+    </>
+  );
+}
+
+function App() {
+
+  return (
+
+    <BrowserRouter>
+
+      <Layout />
 
     </BrowserRouter>
   );

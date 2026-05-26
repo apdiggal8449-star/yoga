@@ -93,87 +93,98 @@ export default function YogaWebsite() {
     </h1>
 
     {/* RESPONSIVE CONTAINER */}
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mt-8">
+    <div className="flex flex-col lg:flex-row items-center bg-orange-100 p-8 justify-between gap-10 mt-8">
 
       {/* LEFT CONTENT */}
       <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
-        <p className="text-base text-gray-600">
-          At Delhi/NCR, we bring the transformation power of yoga right to your doorstep.
-          Serving Delhi, Noida, Gurugram and across the NCR region, our expert-led home yoga
-          classes offer a personalized and comfortable yoga experience in your own space.
-        </p>
-
-        <div className="mt-6">
-          <h3 className="text-lg font-semibold text-gray-900">
-            Achieve Your Goals with Us:
-          </h3>
-
-          <ul className="mt-3 space-y-2 text-sm text-gray-600">
-            <li><strong>Stress Relief:</strong> Deep relaxation through meditation.</li>
-            <li><strong>Improve Flexibility:</strong> Better range of motion.</li>
-            <li><strong>Overall Well-being:</strong> Physical + mental balance.</li>
-          </ul>
-        </div>
-      </div>
+        <h1 className='text-black-500 mt-[-28px] text-3xl font-bold'>Because the Best Yoga Studio Is the One You Never Have to Leave for</h1>
+        <p className="text-base text-gray-600 mt-4">
+         You’ve meant to start yoga for a while now.   </p>
+            <p className="text-base text-gray-600 mt-4">
+          Maybe you’ve tried a studio — but the timings were never quite right, the class was too crowded, or the commute after a long day just killed the motivation. Maybe you’ve tried YouTube videos, but without someone watching your posture, you weren’t sure if you were actually doing it right.  </p>
+        <p className="text-base text-gray-600 mt-4">
+          Here’s the thing: the problem was never yoga. It was the setup. </p>
+        <p className="text-base text-gray-600 mt-4">
+          That’s exactly what OmYogshala’s home yoga classes fix. </p>
+        <p className="text-base text-gray-600 mt-4">
+          We send a certified, experienced yoga instructor directly to your home — in Delhi, Noida, Gurgaon, or anywhere in the NCR region — at a time that actually works for you. Your space, your schedule, your pace. Just you and a trainer who’s fully focused on you. </p>
+        <p className="text-base text-gray-600 mt-4">
+          No rushing. No parking. No performing for strangers.  </p>
+              </div>
 
       {/* RIGHT FORM */}
       <div className="w-full lg:w-1/2">
         <div className="bg-white rounded-2xl shadow-xl p-6">
 
-          <h3 className="text-lg sm:text-2xl font-bold mb-4">
-            Book Free Trial Session
+          <h3 className="text-lg sm:text-2xl text-oransge-500 font-bold mb-4">
+            Connect With Om Yogshala
           </h3>
+          <p className='mb-8'>Fill out the form below, and our team will get back to you shortly.</p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg"
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg"
-            />
-
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              required
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg"
-            />
-
-            <textarea
-              name="message"
-              placeholder="Message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg"
-            />
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 flex items-center justify-center gap-2"
-            >
-              <Send size={18} />
-              {loading ? "Sending..." : "Submit"}
-            </button>
-
-          </form>
+           <form onSubmit={handleSubmit} className="space-y-4">
+          
+                          {/* NAME */}
+                          <div>
+                            <label className="block text-xs text-left font-semibold">Full Name</label>
+                            <input
+                              type="text"
+                              name="name"
+                              required
+                              value={formData.name}
+                              onChange={handleChange}
+                              className="w-full mt-1 px-4 py-2 border rounded-lg"
+                            />
+                          </div>
+          
+                          {/* EMAIL */}
+                          <div>
+                            <label className="block text-left text-xs font-semibold">Email</label>
+                            <input
+                              type="email"
+                              name="email"
+                              required
+                              value={formData.email}
+                              onChange={handleChange}
+                              className="w-full mt-1 px-4 py-2 border rounded-lg"
+                            />
+                          </div>
+          
+                          {/* PHONE */}
+                          <div>
+                            <label className="block text-left text-xs font-semibold">Phone Number</label>
+                            <input
+                              type="tel"
+                              name="phone"
+                              required
+                              value={formData.phone}
+                              onChange={handleChange}
+                              className="w-full mt-1 px-4 py-2 border rounded-lg"
+                            />
+                          </div>
+          
+                          {/* MESSAGE */}
+                          <div>
+                            <label className="block text-left text-xs font-semibold">Message</label>
+                            <textarea
+                              name="message"
+                              value={formData.message}
+                              onChange={handleChange}
+                              className="w-full mt-1 px-4 py-2 border rounded-lg"
+                            />
+                          </div>
+          
+                          {/* BUTTON */}
+                          <button
+                            type="submit"
+                            disabled={loading}
+                            className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 flex items-center justify-center gap-2"
+                          >
+                            <Send size={18} />
+                            {loading ? "Sending..." : "Submit"}
+                          </button>
+          
+                        </form>
+          
         </div>
       </div>
 
@@ -181,8 +192,8 @@ export default function YogaWebsite() {
   </div>
 </section>
       {/* WHY CHOOSE US */}
-      <section className="px-4 py-10 bg-gray-50 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
+      <section className="px-4  py-10 bg-gray-50 sm:px-1 lg:px-1">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900">Why Choose Home Yoga Classes?</h2>
           <p className="mt-2 text-sm text-gray-600">
             Having a private yoga instructor at home gives you the opportunity to make and stick to a routine that flexes well with your day-to-day life. In addition, you can analyze your instructor's movements closely to gain the benefits of feedback which is usually absent in a group setting. Here is why home yoga classes might suit you best:
@@ -199,63 +210,144 @@ export default function YogaWebsite() {
 
       {/* PRICING AND PACKAGES */}
       <section className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto mb-6">
+        <div className="max-w-6xl mx-auto mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Pricing and Packages</h2>
           <p className="mt-2 text-sm text-gray-600">
             We offer flexible pricing packages based on your needs and frequency of sessions. Contact us for more information on our pricing and to discuss the right package for you.
           </p>
           <ul className="mt-3 space-y-1 text-xs text-gray-500 list-disc list-inside">
-            <li>Single Session: Ideal for trying out a home yoga class or a brief-time personalized session.</li>
+            <li>Single Session: Ideal for trying out a <Link to="/homeyoga">
+                       <span className="text-orange-400 cursor-pointer font-medium">
+                        {" "}home
+                      </span>
+            
+                      <span className="text-orange-500 cursor-pointer font-semibold">
+                        {" "}yoga classes{" "}
+                      </span>
+                       </Link>
+                       or a brief-time personalized session.</li>
             <li>Monthly Packages: Designed for those looking for regular practice. Choose from 2, 3, or 4 sessions per week.</li>
           </ul>
         </div>
 
-        {/* PRICING TABLE */}
-        <div className="max-w-4xl mx-auto overflow-hidden border border-gray-200 rounded-lg shadow-sm">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-orange-50/70 border-b border-gray-200 text-sm font-semibold text-gray-900">
-                  <th className="p-4 w-1/3">Package</th>
-                  <th className="p-4 text-orange-700">₹6,500/Month</th>
-                  <th className="p-4 text-orange-700">₹9,500/Month</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 text-xs sm:text-sm text-gray-700">
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50/50">Instructor Type</td>
-                  <td className="p-4">Certified Yoga Instructors</td>
-                  <td className="p-4">Certified Yoga Instructors</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50/50">Schedule</td>
-                  <td className="p-4">3 alternative days in a week (Sat & Sun off)</td>
-                  <td className="p-4">5 days in a week (Sat & Sun off)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50/50">Session Duration</td>
-                  <td className="p-4">1 hour per session</td>
-                  <td className="p-4">1 hour per session</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50/50">Total Sessions Per Month</td>
-                  <td className="p-4">12 sessions</td>
-                  <td className="p-4">20 sessions</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50/50">Demo Class Charges</td>
-                  <td className="p-4">₹500 (adjustable in monthly charges)</td>
-                  <td className="p-4">₹500 (adjustable in monthly charges)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+        {/* plans */}
+      <div className="grid md:grid-cols-3 gap-6">
 
+        {/* plan 1 */}
+        <div className="border border-orange-300 hover:border-2 hover:border-orange-500 rounded-md bg-white p-6 text-center">
+
+          <h3 className="text-[#ef6c00] font-bold text-[18px] mb-3">
+            3 Days / Week
+          </h3>
+
+          <h2 className="text-4xl font-bold text-[#222] mb-1">
+            ₹6,000 <span className='text-sm'>/month</span>
+          </h2>
+
+          <p className="text-[13px] text-[#777] mb-6">
+           Perfect for beginners stepping into a routine
+          </p>
+
+          <ul className="space-y-3 py-2 mt-5 border-t-1 border-orange-500 border-dashed text-[14px] text-[#555] mb-8">
+
+            <li>✔ Certified Yoga Trainer</li>
+            <li>✔ 1 Hour Custom Masterclass</li>
+            <li>✔ Flexible Corporate Scheduling</li>
+            <li>✔ Mats & Props Included</li>
+
+          </ul>
+
+          <button className="w-full bg-[#ef6c00] hover:bg-orange-600 transition text-white py-3 rounded-md font-semibold">
+           <a
+                href="https://wa.me/918265825472?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >Book Home Trainer</a> 
+          </button>
+        </div>
+
+        {/* plan 2 */}
+        <div className="border-2 border-orange-400 rounded-md bg-white p-6 text-center relative">
+
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[11px] px-3 py-1 rounded-full">
+            MOST POPULAR
+          </div>
+
+          <h3 className="text-[#ef6c00] font-bold text-[18px] mb-3">
+            4 Days / Week
+          </h3>
+
+          <h2 className="text-4xl font-bold text-[#222] mb-1">
+            ₹7,500 <span className='text-sm'>/month</span>
+          </h2>
+
+          <p className="text-[13px] text-[#777] mb-6">
+           Best for consistent fat loss & flexibility stability
+          </p>
+
+          <ul className="space-y-3 py-2 mt-5 border-t-1 border-orange-500 border-dashed text-left text-[14px] text-[#555] mb-8">
+
+            <li>✔ 3 Days A Week Wellness Block</li>
+            <li>✔ Custom Corporate Strategy</li>
+            <li>✔ Weekly Progress Tracking</li>
+            <li>✔ Mats & Props Included</li>
+
+          </ul>
+
+          <button className="w-full bg-[#ef6c00] hover:bg-orange-600 transition text-white py-3 rounded-md font-semibold">
+           <a
+                href="https://wa.me/918265825472?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >Book Home Trainer</a> 
+          </button>
+
+        </div>
+
+        {/* plan 3 */}
+        <div className="border border-orange-300 hover:border-2 hover:border-orange-500 rounded-md bg-white p-6 text-center">
+
+          <h3 className="text-[#ef6c00] font-bold text-[18px] mb-3">
+           5 Days / Week
+          </h3>
+
+          <h2 className="text-4xl font-bold text-[#222] mb-1">
+            ₹9,000 <span className='text-sm'>/month</span>
+          </h2>
+
+          <p className="text-[13px] text-[#777]  mb-6">
+           Premium comprehensive daily wellness routine
+          </p>
+
+          <ul className="space-y-3 py-2 mt-5 border-t-1 border-orange-500 border-dashed text-left text-[14px] text-[#555] mb-8">
+
+            <li>✔ 5 Days A Week Wellness Layout</li>
+            <li>✔ High Engagement Custom Path</li>
+            <li>✔ Deep HR Feedback Summary Reports</li>
+            <li>✔ Mats & Full Props Included</li>
+
+          </ul>
+
+          <button className="w-full bg-[#ef6c00] hover:bg-orange-600 transition text-white py-3 rounded-md font-semibold">
+           <a
+                href="https://wa.me/918265825472?text=Hello%20I%20want%20to%20join%20yoga%20classes"
+                target="_blank"
+                rel="noopener noreferrer"
+
+              >Book Home Trainer</a> 
+          </button>
+
+        </div>
+</div>
+
+      </section>
+      <div className='flex align-center justify-center'><p className=' p-4 border-orange-400 rounded-xl border-1 border-dashed'> <span className='text-black-500 font-bold'>Trial Policy:</span> Demo class is available at just ₹300. Don't worry, this amount will be completely adjusted in your monthly package charges upon final enrollment!</p>
+</div>
       {/* WHO CAN BENEFIT */}
       <section className="px-4 py-10 bg-gray-50 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900">Who Can Benefit from Home Yoga Classes?</h2>
           <p className="mt-1 text-sm text-gray-600">People who would benefit from home yoga classes include those who:</p>
           <ul className="mt-4 space-y-2 text-sm text-gray-700 list-disc list-inside">
@@ -270,7 +362,7 @@ export default function YogaWebsite() {
 
       {/* HOW IT WORKS */}
       <section className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900">How Our Home Yoga Classes Work</h2>
           <p className="mt-1 text-sm text-gray-600">Yoga can be made available to everyone, which is why our approach is straightforward and simple:</p>
           
@@ -286,7 +378,7 @@ export default function YogaWebsite() {
 
       {/* HOLISTIC APPROACH & HABIT */}
       <section className="px-4 py-10 bg-gray-50 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto space-y-6 text-sm text-gray-700">
+        <div className="max-w-6xl mx-auto space-y-6 text-sm text-gray-700">
           <div>
             <h3 className="text-base font-semibold text-gray-900">Holistic Approach</h3>
             <p className="mt-1">Physical exercises are just one part of active yoga. In addition to following a set of asanas, our home yoga classes have a unique focus on breath control techniques (Pranayama) as well as meditation to align both the mind and body in order to provide balance and restoration.</p>
@@ -304,7 +396,7 @@ export default function YogaWebsite() {
 
       {/* LOCATION SERVICE CARDS GRID */}
       <section className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="text-center max-w-6xl mx-auto mb-10">
           <h2 className="text-xl font-bold text-gray-900">Get Started Today!</h2>
           <p className="mt-2 text-sm text-gray-600">
             Would you like to start yoga from home? Speak to DelhiYogshala today. Set an appointment with them or book your first session over the phone. We will walk with you to incorporate yoga into your life and help you discover its amazing benefits.
@@ -362,7 +454,7 @@ export default function YogaWebsite() {
       </section>
 
       {/* ACCORDION FAQ SECTION */}
-      <section className="px-4 py-12 mx-auto max-w-3xl sm:px-6 lg:px-8">
+      <section className="px-4 py-12 mx-auto max-w-6xl sm:px-6 lg:px-8">
         <div className="border border-gray-200 rounded-md divide-y divide-gray-200">
           {faqs.map((faq, idx) => (
             <div key={idx} className="bg-white">

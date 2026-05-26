@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
+import {Link} from 'react-router-dom';
 import "aos/dist/aos.css";
 import HomePart from "../components/HomePart"
 
@@ -32,14 +33,16 @@ export const Home = () => {
           stress relief, and enhanced focus.<span className="text-[#2f2f2f] font-semibold">
             {" "}Omyogshala
           </span>  offers personalized
-
-          <span className="text-orange-400 font-medium">
+           <Link to="/homeyoga">
+           <span className="text-orange-400 cursor-pointer font-medium">
             {" "}home
           </span>
 
-          <span className="text-orange-500 font-semibold">
+          <span className="text-orange-500 cursor-pointer font-semibold">
             {" "}yoga classes{" "}
           </span>
+           </Link>
+          
 
           tailored to your fitness level, ensuring you achieve balance in both
           body and mind.

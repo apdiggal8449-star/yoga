@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import image from "../assets/preg.webp";
 import {
   CheckCircle,
   Heart,
@@ -191,7 +192,7 @@ export default function PregnancyYogaPage() {
             </h1>
 
             <img
-              src={data.heroImage}
+              src={image}
               alt="Pregnancy Yoga"
               className="w-full rounded-2xl shadow-xl"
             />

@@ -106,29 +106,29 @@ export default function Navbar() {
               </button>
 
               {classesOpen && (
-                <div className="absolute top-8 left-0 bg-orange-500 w-60 rounded shadow-lg text-white">
+                <div className="absolute top-8 left-16 bg-orange-500 w-60 rounded shadow-lg text-white">
 
-                  <Link to="/delhi" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-delhi" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Delhi
                   </Link>
 
-                  <Link to="/noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Noida
                   </Link>
 
-                  <Link to="/ghaziabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-ghaziabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Ghaziabad
                   </Link>
 
-                  <Link to="/greater-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-greater-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Greater Noida
                   </Link>
 
-                  <Link to="/faridabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-faridabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Faridabad
                   </Link>
 
-                  <Link to="/gurgaon" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-gurgaon" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Gurgaon
                   </Link>
 
@@ -139,7 +139,7 @@ export default function Navbar() {
             <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
             <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
             <li><Link to="/writeus" onClick={closeMenu}>Write For Us</Link></li>
-              <li><Link to="/admin-login" onClick={closeMenu}>Admin</Link></li>
+              <li><Link to="/adminlogin" onClick={closeMenu}>Admin</Link></li>
 
           </ul>
 
@@ -207,27 +207,27 @@ export default function Navbar() {
 
             {classesOpen && (
               <div className="pl-6">
-                                 <Link to="/delhi" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                                 <Link to="/yoga-classes-delhi" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Delhi
                   </Link>
 
-                  <Link to="/noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Noida
                   </Link>
 
-                  <Link to="/ghaziabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-ghaziabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Ghaziabad
                   </Link>
 
-                  <Link to="/greater-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-greater-noida" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Greater Noida
                   </Link>
 
-                  <Link to="/faridabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-faridabad" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Faridabad
                   </Link>
 
-                  <Link to="/gurgaon" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
+                  <Link to="/yoga-classes-gurgaon" onClick={closeMenu} className="block px-4 py-2 hover:bg-orange-600">
                     Home Yoga Classes in Gurgaon
                   </Link>
 
